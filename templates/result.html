@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Diabetes Predictor</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='diabetes-favicon.ico') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+
+</head>
+
+<body>
+
+    <!-- Website Title -->
+    <div class="container">
+        <h2 class='container-heading'><span class="heading_font">Diabetes Predictor</span></h2>
+        <div class='description'>
+            <p>A Machine Learning Web App, Built with Flask.</p>
+        </div>
+    </div>
+
+    <!-- Result -->
+    <div class="results">
+        {% if prediction==1 %}
+        <h1>Prediction: <span class='danger'>Oops! You have DIABETES.</span></h1>
+        <img class="gif" src="{{ url_for('static', filename='M6CCUTXOV92EQKJV.webp') }}" alt="Diabetes Image"> {% elif prediction==0 %}
+        <h1>Prediction: <span class='safe'>Great! You DON'T have diabetes.</span></h1>
+        <img class="gif1" src="{{ url_for('static', filename='GKRBGMN9J8VCP3RU.webp') }}" alt="Not Diabetes Image"> {% endif %}
+    </div>
+    <form>
+        <center>
+            <table id="display">
+                <tr>
+                    <th>Pregnancies</th>
+                    <th>Glucose</th>
+                    <th>BP</th>
+                    <th>Skin thickness</th>
+                    <th>insulin</th>
+                    <th>bmi</th>
+                    <th>dpf</th>
+                    <th>age</th>
+                </tr>
+                <tr>
+                    <th><span id='pregnancies1'></span></th>
+                    <th><span id='glucose1'></span></th>
+                    <th><span id='bp1'></span></th>
+                    <th><span id='sk1'></span></th>
+                    <th><span id='insulin1'></span></th>
+                    <th><span id='bmi1'></span></th>
+                    <th><span id='dpf1'></span></th>
+                    <th><span id='age1'></span></th>
+                </tr>
+            </table>
+        </center>
+    </form>
+    <br>
+    <!-- Footer -->
+    <div class='footer'>
+        <div class="contact">
+            <a target="_blank" href="https://github.com/anushkaborole23/diabeties_prediction"><i class="fab fa-github fa-lg contact-icon"></i></a>
+            <a target="_blank" href="https://www.linkedin.com/in/anushka-borole-b2b479201/"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+        </div>
+    </div>
+    <script>
+        document.getElementById("pregnancies1").innerHTML = localStorage.getItem("preg");
+        document.getElementById("glucose1").innerHTML = localStorage.getItem("glu");
+        document.getElementById("bp1").innerHTML = localStorage.getItem("bp2");
+        document.getElementById("sk1").innerHTML = localStorage.getItem("sk2");
+        document.getElementById("insulin1").innerHTML = localStorage.getItem("insulin2");
+        document.getElementById("bmi1").innerHTML = localStorage.getItem("bmi2");
+        document.getElementById("dpf1").innerHTML = localStorage.getItem("dpf2");
+        document.getElementById("age1").innerHTML = localStorage.getItem("age2");
+    </script>
+</body>
+
+</html>
